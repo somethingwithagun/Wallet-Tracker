@@ -68,12 +68,12 @@ bool Filesystem::rm(std::string path, std::string filename)
 std::string Filesystem::readFromFile(std::string path)
 {
     if(!Filesystem::exists(path))
-        return std::string("error");
+        return std::string("");
 
     std::ifstream dist(path);
 
     if(!dist.is_open())
-        return std::string("error");
+        return std::string("");
 
     std::string data = "";
     std::string buffer = "";

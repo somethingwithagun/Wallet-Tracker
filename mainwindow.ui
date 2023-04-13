@@ -36,7 +36,7 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel{color:#000;}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>date</string>
@@ -160,6 +160,9 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:#000000;}</string>
+      </property>
       <property name="text">
        <string>Add payment</string>
       </property>
@@ -178,6 +181,9 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:#000000;}</string>
+      </property>
       <property name="text">
        <string>Display day payments</string>
       </property>
@@ -195,6 +201,9 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:#000000;}</string>
       </property>
       <property name="text">
        <string>Display month payments</string>

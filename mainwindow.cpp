@@ -69,7 +69,7 @@ void MainWindow::scanData()
 
     std::string paymentSum = "";
 
-    if (dayPayments == "error.txt")
+    if (dayPayments == ".txt")
         dayPaymentsSum = 0;
     else
     {
@@ -89,7 +89,7 @@ void MainWindow::scanData()
     // std::string monthPaymentsfilepath =
     //   Filesystem::readFromFile(std::string(DATA_PATH) + currentDate.substr(4, currentDate.size() - 2) + ".txt");
     std::string monthPayments = Filesystem::readFromFile(std::string(DATA_PATH) + currentMonth + ".txt");
-    if (monthPayments == "error.txt")
+    if (monthPayments == ".txt")
         monthPaymentsSum = 0;
     else
     {

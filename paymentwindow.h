@@ -3,6 +3,7 @@
 
 #include "./fileConstants.h"
 #include "./fsystem.h"
+#include "./palette.h"
 
 #include <QDialog>
 #include <QHBoxLayout>

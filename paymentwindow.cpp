@@ -14,13 +14,13 @@ PaymentWindow::PaymentWindow(std::string date, std::string month,QWidget *parent
     if (previousDate != currentDate + '\n')
     {
         Filesystem::replaceInto(DATA_PATH, DAY_CONF_PATH, currentDate);
-        if(previousDate != "error")
+        if(previousDate != "")
             Filesystem::rm(DATA_PATH, previousDate.substr(0, previousDate.size() - 1) + ".txt"); // to avoid the '\n'
     }    
     if (previousMonth != currentMonth + '\n')
     {
         Filesystem::replaceInto(DATA_PATH, MONTH_CONF_PATH, currentMonth);
-        if(previousMonth != "error")
+        if(previousMonth != "")
             Filesystem::rm(DATA_PATH, previousMonth.substr(0,previousMonth.size()-1)+".txt"); // to avoid the '\n'
     }
 
@@ -34,6 +34,8 @@ PaymentWindow::PaymentWindow(std::string date, std::string month,QWidget *parent
     sum_field = new QLineEdit;
     submit_button = new QPushButton;
     cancel_button = new QPushButton;
+    QPalette darkPalette;
+    darkPalette.setColor(QPalette::Text, Qt::black);
 
     QFont h1;
     QFont h2;
@@ -46,12 +48,18 @@ PaymentWindow::PaymentWindow(std::string date, std::string month,QWidget *parent
 
     paymentName_label->setText("Enter payment name:");
     paymentName_label->setFont(h2);
+    paymentName_label->setStyleSheet("QLabel{color:#000000;");
+
     paymentName_field->setMinimumSize(QSize(0, 40));
+    paymentName_field->setPalette(darkPalette);
 
     sum_label->setText("Enter sum:");
     sum_label->setFont(h2);
+    sum_label->setStyleSheet("QLabel{color:#000000;");
+
     sum_field->setValidator( new QIntValidator( 1, 99999, this ));
     sum_field->setMinimumSize(QSize(0, 40));
+    sum_field->setPalette(darkPalette);
 
     submit_button->setText("Submit");
     submit_button->setMinimumSize(QSize(0, 60));
@@ -85,8 +93,8 @@ void PaymentWindow::addPayment()
 
     if(validationResult == 0)
     {
-        paymentName_label->setStyleSheet("QLabel{ color:#000000; } ");
-        sum_label->setStyleSheet("QLabel{ color:#000000; } ");
+        paymentName_label->setStyleSheet("QLabel{ color:#FFFFFF; } ");
+        sum_label->setStyleSheet("QLabel{ color:#FFFFFF; } ");
 
         std::string log = (paymentName + ':' + sum_field->text()).toStdString();
 
@@ -99,14 +107,14 @@ void PaymentWindow::addPayment()
     else if(validationResult == 1)
     {
         // normalize the sum label
-        sum_label->setStyleSheet("QLabel{ color:#000000; } ");
+        sum_label->setStyleSheet("QLabel{ color:#FFFFFF; } ");
         paymentName_label->setStyleSheet("QLabel{ color: red; }");
         this->paymentName = "";
     }
     else if(validationResult == 2)
     {
         // normalise the payment name label
-        paymentName_label->setStyleSheet("QLabel{ color: #000000; }");
+        paymentName_label->setStyleSheet("QLabel{ color: #FFFFFF; }");
         sum_label->setStyleSheet("QLabel{ color: red; }");
         this->paymentSum = 0;
     }

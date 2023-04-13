@@ -1,9 +1,9 @@
 ﻿#ifndef PALLETE_H
 #define PALLETE_H
 
-#include <QPalette>
 #include <QApplication>
+#include <QPalette>
 
-void setPalette(QApplication& app);
+void setPalette(QApplication &app);
 
 #endif

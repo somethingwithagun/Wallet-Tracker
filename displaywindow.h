@@ -5,6 +5,8 @@
 #include <QTextEdit>
 #include <QString>
 #include <QVBoxLayout>
+#include <QPushButton>
+
 #include "fileConstants.h"
 #include "fsystem.h"
 
@@ -15,6 +17,7 @@ public:
   ~DisplayWindow();
 
 private:
+  QPushButton *cancel_button = nullptr;
   QVBoxLayout *layout = nullptr;
   QTextEdit* field = nullptr;
 };
