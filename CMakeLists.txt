@@ -13,6 +13,7 @@ qt_standard_project_setup()
 add_executable(DigitalWalletTracker
     mainwindow.ui
     fsystem.cpp
+    palette.cpp
     paymentwindow.cpp
     date.cpp
     displaywindow.cpp
